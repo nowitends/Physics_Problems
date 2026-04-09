@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-A sound wave in air has a frequency of $440 , \text{Hz}$. The speed of sound in air is $343  \text{m/s}$.
+A sound wave in air has a frequency of $440  \text{Hz}$. The speed of sound in air is $343  \text{m/s}$.
 
 Determine the wavelength of the sound wave in air.
 
@@ -40,7 +40,7 @@ For a given wave, the frequency remains constant when transitioning between medi
 Given:
 
 $$
-v_{\text{air}} = 343 , \text{m/s}, \quad f = 440 , \text{Hz}
+v_{\text{air}} = 343  \text{m/s}, \quad f = 440  \text{Hz}
 $$
 
 Using the wavelength formula:
@@ -66,7 +66,7 @@ $$
 Given:
 
 $$
-v_{\text{water}} = 1482 , \text{m/s}, \quad f = 440 , \text{Hz}
+v_{\text{water}} = 1482  \text{m/s}, \quad f = 440  \text{Hz}
 $$
 
 Using the same relation:

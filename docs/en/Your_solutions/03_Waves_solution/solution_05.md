@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-A person shouts towards a cliff and hears the echo after $1 , \text{s}$. The speed of sound in air is $v = 343 , \text{m/s}$.
+A person shouts towards a cliff and hears the echo after $1  \text{s}$. The speed of sound in air is $v = 343  \text{m/s}$.
 
 Determine the distance to the cliff.
 
@@ -35,7 +35,7 @@ $$
 Given:
 
 $$
-v = 343 \text{ m/s}, \quad t = 1 \text{ s}
+v = 343 \text{ m/s} \quad t = 1 \text{ s}
 $$
 
 Use the formula:

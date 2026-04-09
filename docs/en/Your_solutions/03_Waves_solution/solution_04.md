@@ -17,7 +17,7 @@ where $\lambda$ is the wavelength of the wave.
 The phase difference $\Delta \phi$ between two points separated by a distance $\Delta x$ along a wave is related to the wave number $k$ by:
 
 $$
-\Delta \phi = k , \Delta x
+\Delta \phi = k . \Delta x
 $$
 
 The wave number $k$ is defined as:
