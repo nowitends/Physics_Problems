@@ -39,7 +39,7 @@ $$
 
 ### Step 1: Define Positions
 
-Let the दूरी between $q_1$ and $q_2$ be $2 , \text{m}$.
+Let the distance between $q_1$ and $q_2$ be $2 , \text{m}$.
 
 Assume:
 
