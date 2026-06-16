@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple Pendulum Concept</title>
+<style>
+body{font-family:Arial;text-align:center;background:#f3f6ff}
+canvas{background:white;border:1px solid black;margin-top:20px}
+</style>
+</head>
+<body>
+<h3>Simple Pendulum Motion & Relation between T, L and g</h3>
+<canvas id="c" width="500" height="420"></canvas>
+
+<script>
+let canvas=document.getElementById("c");
+let ctx=canvas.getContext("2d");
+
+let L=160;      // visual length
+let angle=0.6;  // initial angle
+let t=0;
+
+function draw(){
+ctx.clearRect(0,0,500,420);
+
+// pivot
+let px=250;
+let py=80;
+
+// oscillation animation
+angle = 0.6*Math.cos(t);
+let bx = px + L*Math.sin(angle);
+let by = py + L*Math.cos(angle);
+
+// string
+ctx.beginPath();
+ctx.moveTo(px,py);
+ctx.lineTo(bx,by);
+ctx.lineWidth=2;
+ctx.stroke();
+
+// bob
+ctx.beginPath();
+ctx.arc(bx,by,18,0,Math.PI*2);
+ctx.fillStyle="#4d79ff";
+ctx.fill();
+
+// pivot point
+ctx.beginPath();
+ctx.arc(px,py,4,0,Math.PI*2);
+ctx.fillStyle="black";
+ctx.fill();
+
+// labels
+ctx.fillStyle="black";
+ctx.font="16px Arial";
+ctx.fillText("Length (L)",px+20,py+80);
+ctx.fillText("Time Period (T) → oscillation speed",120,40);
+ctx.fillText("Gravity (g) affects speed of swing",120,60);
+
+// arc path
+ctx.beginPath();
+ctx.arc(px,py,L,Math.PI/2-0.6,Math.PI/2+0.6);
+ctx.strokeStyle="#aaa";
+ctx.stroke();
+
+// ground line
+ctx.beginPath();
+ctx.moveTo(0,py+L+20);
+ctx.lineTo(500,py+L+20);
+ctx.strokeStyle="#555";
+ctx.stroke();
+
+// gravity arrow
+ctx.beginPath();
+ctx.moveTo(bx,by);
+ctx.lineTo(bx,by+40);
+ctx.strokeStyle="red";
+ctx.lineWidth=2;
+ctx.stroke();
+ctx.fillText("g",bx+5,by+30);
+
+ t+=0.05;
+ requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+</body>
+</html>

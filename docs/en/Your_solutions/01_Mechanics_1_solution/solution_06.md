@@ -1,117 +1,146 @@
-# Problem 6: Variable Velocity
+# Task 06 – Variable Velocity
 
-We are given the velocity function $v(t)=t^2+2t-5$ and the initial position $x(0)=4$.
+## Problem Statement
 
-We want:
+An object has velocity:
 
-1. The position at $t=3$, i.e. $x(3)$.
-2. The acceleration at $t=3$, i.e. $a(3)$.
+$$
+v(t) = t^2 + 2t - 5
+$$
+
+Initial position:
+
+$$
+x(0) = 4
+$$
+
+Determine:
+
+* Position $x(t)$ at $t = 3$
+* Acceleration $a(t)$ at $t = 3$
 
 ---
 
-## 1) Position from velocity theory
+## Theory
 
-Velocity is the derivative of position:
-
-$$
-v(t)=\frac{dx}{dt}
-$$
-
-So:
+* Acceleration is the derivative of velocity:
 
 $$
-\frac{dx}{dt}=t^2+2t-5
+a(t) = \frac{dv}{dt}
 $$
 
-Integrate both sides with respect to $t$:
+* Position is the integral of velocity:
 
 $$
-x(t)=\int (t^2+2t-5)\,dt
+x(t) = x_0 + \int_0^t v(t) , dt
 $$
 
-Compute the integral term-by-term:
+* Step-by-step integration and differentiation provide the solution.
+
+---
+
+## Step-by-Step Solution
+
+### 1. Acceleration
+
+Velocity:
 
 $$
-\int t^2\,dt=\frac{t^3}{3},\qquad
-\int 2t\,dt=t^2,\qquad
-\int (-5)\,dt=-5t
+v(t) = t^2 + 2t - 5
 $$
 
-So the general position function is:
+Derivative gives acceleration:
 
 $$
-x(t)=\frac{t^3}{3}+t^2-5t+C
+a(t) = \frac{d}{dt}[t^2 + 2t - 5]
 $$
 
-Use the initial condition $x(0)=4$:
-
 $$
-x(0)=\frac{0^3}{3}+0^2-5\cdot 0 + C = C = 4
+a(t) = 2t + 2
 $$
 
-Therefore:
+At $t = 3$:
 
 $$
-x(t)=\frac{t^3}{3}+t^2-5t+4
-$$
-
-Now evaluate at $t=3$:
-
-$$
-x(3)=\frac{3^3}{3}+3^2-5\cdot 3+4
-=\frac{27}{3}+9-15+4
-=9+9-15+4
-$$
-
-Compute:
-$$
-9+9=18,\qquad 18-15=3,\qquad 3+4=7
-$$
-
-So:
-
-$$
-x(3)=7
+a(3) = 2(3) + 2 = 6 + 2 = 8
 $$
 
 ---
 
-## 2) Acceleration from velocity
+### 2. Position
 
-Acceleration is the derivative of velocity:
-
-$$
-a(t)=\frac{dv}{dt}
-$$
-
-Differentiate:
+Position is integral of velocity:
 
 $$
-v(t)=t^2+2t-5
-\quad\Rightarrow\quad
-a(t)=2t+2
+x(t) = x_0 + \int_0^t v(t) , dt
 $$
 
-Evaluate at $t=3$:
+$$
+x(t) = 4 + \int_0^t (t^2 + 2t - 5) , dt
+$$
+
+Compute integral:
 
 $$
-a(3)=2\cdot 3 + 2 = 8
+\int (t^2 + 2t - 5) , dt = \frac{t^3}{3} + t^2 - 5t
+$$
+
+Add initial position:
+
+$$
+x(t) = 4 + \frac{t^3}{3} + t^2 - 5t
+$$
+
+At $t = 3$:
+
+$$
+x(3) = 4 + \frac{3^3}{3} + 3^2 - 5(3)
+$$
+
+Compute step-by-step:
+
+$$
+\frac{3^3}{3} = \frac{27}{3} = 9
+$$
+
+$$
+3^2 = 9
+$$
+
+$$
+-5(3) = -15
+$$
+
+Sum:
+
+$$
+x(3) = 4 + 9 + 9 - 15
+$$
+
+$$
+x(3) = 7
 $$
 
 ---
 
-## Final answers
+## Final Result
+
+Position at $t = 3$:
 
 $$
-x(3)=7
+x(3) = 7
 $$
 
+Acceleration at $t = 3$:
+
 $$
-a(3)=8
+a(3) = 8
 $$
 
 ---
 
-## Plot the velocity and acceleration
+## Interpretation
 
-![Velocity and Acceleration Plots](velocity_acceleration_plots.png)
+* The acceleration increases linearly with time: $a(t) = 2t + 2$
+* The position grows according to the integral of velocity, showing non-uniform motion
+* At $t = 3$, the object is at $x = 7$ and accelerating at $8 \text{ m/s}^2$

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fly and Bicycle Animation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+  }
+  canvas {
+    background: #e5e7eb;
+    margin-top: 20px;
+    border-radius: 12px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<h1>Fly & Bicycle Infinite Trip Animation</h1>
+<p>Bicycle speed = 1 m/s | Fly speed = 2 m/s</p>
+<button onclick="startSim()">Start Simulation</button>
+<br/>
+<canvas id="sim" width="800" height="200"></canvas>
+
+<script>
+const canvas = document.getElementById('sim');
+const ctx = canvas.getContext('2d');
+
+let bikeX = 100;
+let wallX = 700;
+let flyX = bikeX + 20;
+let flyDir = 1;
+
+const bikeSpeed = 0.05; // scaled
+const flySpeed = 0.1;   // scaled
+
+let running = false;
+
+function drawWall() {
+  ctx.fillStyle = '#374151';
+  ctx.fillRect(wallX, 50, 10, 100);
+}
+
+function drawBike() {
+  ctx.fillStyle = '#2563eb';
+  ctx.fillRect(bikeX, 100, 60, 20);
+  ctx.beginPath();
+  ctx.arc(bikeX + 10, 125, 10, 0, Math.PI*2);
+  ctx.arc(bikeX + 50, 125, 10, 0, Math.PI*2);
+  ctx.fillStyle = 'black';
+  ctx.fill();
+}
+
+function drawFly() {
+  ctx.beginPath();
+  ctx.arc(flyX, 90, 5, 0, Math.PI*2);
+  ctx.fillStyle = 'red';
+  ctx.fill();
+}
+
+function update() {
+  if (!running) return;
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  bikeX += bikeSpeed;
+  flyX += flyDir * flySpeed;
+
+  if (flyX >= wallX) flyDir = -1;
+  if (flyX <= bikeX + 60) flyDir = 1;
+
+  drawWall();
+  drawBike();
+  drawFly();
+
+  if (bikeX + 60 < wallX) {
+    requestAnimationFrame(update);
+  } else {
+    running = false;
+    ctx.fillStyle = 'black';
+    ctx.font = '24px Arial';
+    ctx.fillText('Collision! Fly total distance = 20 m', 200, 40);
+  }
+}
+
+function startSim() {
+  bikeX = 100;
+  flyX = bikeX + 20;
+  flyDir = 1;
+  running = true;
+  update();
+}
+
+// initial draw
+ drawWall();
+ drawBike();
+ drawFly();
+</script>
+</body>
+</html>
